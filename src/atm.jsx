@@ -29,15 +29,7 @@ function TNTATM() {
           </div>
           <div className="atm__body">
             <div className="atm__visual">
-              <div className="atm__visual-grid" aria-hidden="true"></div>
-              <div className="atm__visual-label">Main Graphic</div>
-              <div className="atm__visual-corner" aria-hidden="true">
-                <span>OTC ANYWHERE</span>
-                <span>LOCK STATE · LIVE</span>
-              </div>
-              <div className="atm__visual-blip" style={{top:'22%',left:'34%'}} aria-hidden="true"></div>
-              <div className="atm__visual-blip" style={{top:'58%',left:'62%'}} aria-hidden="true"></div>
-              <div className="atm__visual-blip" style={{top:'40%',left:'78%'}} aria-hidden="true"></div>
+              <img src="uploads/TNT-OTC.png" alt="OTC Anywhere — Track/Trace lock systems integration: Primary and Secondary OTC services with Lock System DB, Keybox (Enterprise hosted), 3rd Party, and On-Premise lock systems" />
             </div>
             <ul className="atm__list">
               {items.map(it => (

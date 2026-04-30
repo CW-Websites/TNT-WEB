@@ -43,8 +43,12 @@ function TNTHero() {
           </div>
         </div>
         <div className="hero__visual">
-          <div className="hero__ph hero__ph--web" aria-label="Web product placeholder">Web</div>
-          <div className="hero__ph hero__ph--app" aria-label="App product placeholder">App</div>
+          <div className="hero__ph hero__ph--web" aria-label="Track/Trace web — Route Control">
+            <img src="uploads/TNT-Main-Web-Hero.png" alt="Track/Trace Route Control dashboard" />
+          </div>
+          <div className="hero__ph hero__ph--app" aria-label="Track/Trace mobile app — Route delivery">
+            <img src="uploads/TNT-Main-App-Hero.png" alt="Track/Trace mobile app showing route delivery summary" />
+          </div>
         </div>
       </div>
     </section>

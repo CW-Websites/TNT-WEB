@@ -75,8 +75,8 @@ function TNTProcess() {
             </ul>
           </div>
           <div className="process__viz">
-            <img src="uploads/screenshot-route-control.png" alt="Route Control"
-                 style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'top left',borderRadius:'4px',border:'1px solid var(--line)'}}/>
+            <img src="uploads/TNT-Trello-sm.png" alt="Track/Trace product roadmap on a Trello board with columns: In Process, Top Priorities, Bulk Transfer, Service Tickets, General Bumps"
+                 style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'top center',borderRadius:'4px',border:'1px solid var(--line)'}}/>
           </div>
         </div>
       </div>

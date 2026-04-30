@@ -6,7 +6,7 @@ function TNTPillars() {
         <div className="section-head reveal">
           <div className="eyebrow">Capability Foundations</div>
           <h2 className="section-head__title">
-            The pillars of operational <span className="accent">consistency</span>, <span className="green">efficiency</span>, and <span className="orange">automation</span>.
+            The pillars of operational <span className="accent">consistency</span>, <span className="accent">efficiency</span>, and <span className="green">automation</span>.
           </h2>
           <p className="section-head__lede">
             Fifteen functional foundations — one platform.<br/>Every capability built for cash logistics from the ground up.

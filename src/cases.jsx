@@ -5,7 +5,7 @@ function TNTCases() {
         <div className="section-head reveal">
           <div className="eyebrow">Deployment Cases</div>
           <h2 className="section-head__title">
-            Four Example Deployments<br/><span className="accent">One Platform.</span>
+            Four example deployments<br/><span className="accent">One Platform.</span>
           </h2>
           <p className="section-head__lede">
             Every CIT/ATM/FLM operation has its own pressure points.<br/>The platform configures against the model — these are the four we deploy most often.

@@ -248,30 +248,26 @@ h1, h2, h3, h4 { font-family: var(--sans); font-weight: 500; letter-spacing: -0.
 }
 .hero__ph {
   position: absolute;
-  background: var(--accent);
-  border-radius: 14px;
   display: flex; align-items: center; justify-content: center;
   color: var(--paper);
   font-size: clamp(22px, 2.4vw, 32px);
   font-weight: 500;
   letter-spacing: -0.02em;
-  box-shadow: 0 24px 60px -32px rgba(11,30,63,0.35);
-  overflow: hidden;
+  filter: drop-shadow(0 24px 40px rgba(11,30,63,0.28));
 }
-.hero__ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero__ph img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; }
 .hero__ph--web {
-  top: 4%;
-  right: 0;
-  width: 78%;
-  height: 70%;
+  top: -8%;
+  right: 8%;
+  width: 97.5%;
+  height: 87.5%;
   z-index: 1;
 }
 .hero__ph--app {
-  left: 0;
+  left: -5%;
   bottom: 0;
-  width: 38%;
-  height: 78%;
-  background: color-mix(in oklab, var(--accent) 88%, #0B1E3F);
+  width: 30.6%;
+  height: 74.7%;
   z-index: 2;
 }
 @media (max-width: 720px) {
@@ -677,7 +673,7 @@ h1, h2, h3, h4 { font-family: var(--sans); font-weight: 500; letter-spacing: -0.
   transform: translateY(6px);
 }
 .loop__item:hover {
-  background-color: #0E4A66;
+  background-color: var(--accent-2);
 }
 .loop__item:hover .loop__item-label {
   opacity: 0;
@@ -729,11 +725,22 @@ h1, h2, h3, h4 { font-family: var(--sans); font-weight: 500; letter-spacing: -0.
 
 .atm__visual {
   position: relative;
-  background: var(--accent);
+  background: var(--paper);
+  border: 1px solid rgba(11,30,63,0.08);
   border-radius: 14px;
-  min-height: clamp(320px, 38vw, 480px);
   overflow: hidden;
   box-shadow: 0 22px 50px -28px rgba(11,30,63,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+.atm__visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
 }
 .atm__visual-grid {
   position: absolute; inset: 0;
