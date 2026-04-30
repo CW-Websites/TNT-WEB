@@ -1,0 +1,58 @@
+function TNTATM() {
+  const items = [
+    'Automated Opening On Check Out',
+    'Manual Opening On-Demand',
+    'Geofenced Open Controls',
+    'Close Enforcement',
+    'Automated Reassigns',
+    'Truck Cages/Safes',
+  ];
+  return (
+    <section className="section" id="atm">
+      <div className="container">
+        <div className="section-head reveal">
+          <div className="eyebrow">Lock Automation</div>
+          <h2 className="section-head__title">
+            Fully automated lock <span className="accent">dispatching.</span>
+          </h2>
+          <p className="section-head__lede">
+            Works across DormaKaba, Stanley S&amp;G and Intergard lock systems<br/>— one platform, every lock, every truck, every vault.
+          </p>
+        </div>
+        <div className="atm reveal">
+          <div className="atm__brandrow">
+            <img className="atm__brand" src="uploads/OTC-Logo-v1.png" alt="OTC Anywhere"/>
+            <a className="btn btn--primary atm__visit" href="https://otcanywhere.com" target="_blank" rel="noopener">
+              Visit site
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
+          <div className="atm__body">
+            <div className="atm__visual">
+              <div className="atm__visual-grid" aria-hidden="true"></div>
+              <div className="atm__visual-label">Main Graphic</div>
+              <div className="atm__visual-corner" aria-hidden="true">
+                <span>OTC ANYWHERE</span>
+                <span>LOCK STATE · LIVE</span>
+              </div>
+              <div className="atm__visual-blip" style={{top:'22%',left:'34%'}} aria-hidden="true"></div>
+              <div className="atm__visual-blip" style={{top:'58%',left:'62%'}} aria-hidden="true"></div>
+              <div className="atm__visual-blip" style={{top:'40%',left:'78%'}} aria-hidden="true"></div>
+            </div>
+            <ul className="atm__list">
+              {items.map(it => (
+                <li key={it}>
+                  <span className="atm__check" aria-hidden="true">
+                    <img src="uploads/check-circle-green.png" alt=""/>
+                  </span>
+                  <span className="atm__text">{it}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+window.TNTATM = TNTATM;
