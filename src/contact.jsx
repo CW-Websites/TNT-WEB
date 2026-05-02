@@ -124,7 +124,7 @@ function TNTFooter() {
       <div className="container">
         <div className="tnt-footer__grid">
           <div className="tnt-footer__col">
-            <img src="uploads/logo-tnt.png" alt="Track/Trace" style={{height: 36, width: 'auto', marginBottom: 18}}/>
+            <img src="uploads/logo-tnt-white.png" alt="Track/Trace" style={{height: 36, width: 'auto', marginBottom: 18}}/>
             <p style={{margin: 0, lineHeight: 1.6, opacity: 0.8, fontSize: 14, maxWidth: '34ch'}}>
               A SaaS platform for cash logistics — CIT, ATM, and FLM/SLM service operations. Engineered for cash logistics from the ground up, not retrofitted into it.
             </p>
