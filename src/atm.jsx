@@ -20,27 +20,26 @@ function TNTATM() {
           </p>
         </div>
         <div className="atm reveal">
-          <div className="atm__brandrow">
-            <img className="atm__brand" src="uploads/OTC-Logo-v1.png" alt="OTC Anywhere"/>
-            <a className="btn btn--primary atm__visit" href="https://otcanywhere.com" target="_blank" rel="noopener">
-              Visit site
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-            </a>
-          </div>
           <div className="atm__body">
             <div className="atm__visual">
               <img src="uploads/TNT-OTC.png" alt="OTC Anywhere — Track/Trace lock systems integration: Primary and Secondary OTC services with Lock System DB, Keybox (Enterprise hosted), 3rd Party, and On-Premise lock systems" />
             </div>
-            <ul className="atm__list">
-              {items.map(it => (
-                <li key={it}>
-                  <span className="atm__check" aria-hidden="true">
-                    <img src="uploads/check-circle-green.png" alt=""/>
-                  </span>
-                  <span className="atm__text">{it}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="atm__rightcol">
+              <a className="btn btn--primary atm__visit" href="https://otcanywhere.com" target="_blank" rel="noopener">
+                Visit site
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+              </a>
+              <ul className="atm__list">
+                {items.map(it => (
+                  <li key={it}>
+                    <span className="atm__check" aria-hidden="true">
+                      <img src="uploads/check-circle-green.png" alt=""/>
+                    </span>
+                    <span className="atm__text">{it}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

@@ -43,6 +43,7 @@ function TNTApp() {
         <TNTATM/>
         <TNTIntegrations/>
         <TNTProcess/>
+        <TNTWhy/>
         <TNTContact/>
       </main>
       <TNTFooter/>
