@@ -1,10 +1,5 @@
 const { useEffect: useEffectTNT } = React;
 
-const TNT_TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "accent": "#2F6FB8",
-  "showGrid": true
-}/*EDITMODE-END*/;
-
 function useTNTReveal() {
   useEffectTNT(() => {
     const els = document.querySelectorAll('.reveal');
@@ -18,46 +13,42 @@ function useTNTReveal() {
   }, []);
 }
 
-function applyTNTTweaks(t) {
-  const root = document.documentElement;
-  root.style.setProperty('--accent', t.accent || '#2F6FB8');
-  document.querySelectorAll('.grid-bg').forEach(el => {
-    el.style.display = t.showGrid ? '' : 'none';
-  });
-}
-
-function TNTApp() {
-  const [t, setTweak] = useTweaks(TNT_TWEAK_DEFAULTS);
+// `page` says which page to show: 'home', a landing page ('cit', 'atm',
+// 'flm', 'vault') or 'notfound'. See src/pages.jsx for the list.
+function TNTApp({ page = 'home' }) {
   useTNTReveal();
-  useEffectTNT(() => { applyTNTTweaks(t); }, [t]);
 
-  return (
-    <>
-      <TNTNav/>
-      <main>
+  let main;
+  if (page === 'home') {
+    main = (
+      <>
         <TNTHero/>
         <TNTPillars/>
         <TNTBenefits/>
+        <TNTSolutions/>
         <TNTCases/>
         <TNTLoop/>
         <TNTATM/>
         <TNTIntegrations/>
         <TNTProcess/>
         <TNTWhy/>
+        <TNTFaq page="home"/>
         <TNTContact/>
-      </main>
-      <TNTFooter/>
+      </>
+    );
+  } else if (TNT_LANDINGS[page]) {
+    main = (<><TNTLanding page={page}/><TNTContact/></>);
+  } else {
+    main = <TNTNotFound/>;
+  }
 
-      <TweaksPanel title="Tweaks">
-        <TweakSection label="Brand"/>
-        <TweakColor label="Accent" value={t.accent}
-          onChange={(v) => setTweak('accent', v)}/>
-        <TweakSection label="Behavior"/>
-        <TweakToggle label="Schematic grid" value={!!t.showGrid}
-          onChange={(v) => setTweak('showGrid', v)}/>
-      </TweaksPanel>
+  return (
+    <>
+      <TNTNav/>
+      <main>{main}</main>
+      <TNTFooter/>
     </>
   );
 }
-
-ReactDOM.createRoot(document.getElementById('root')).render(<TNTApp/>);
+window.TNTApp = TNTApp;
+// The page is mounted by build.mjs (pre-rendered HTML + hydrate in the browser).

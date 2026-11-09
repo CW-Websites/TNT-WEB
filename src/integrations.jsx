@@ -64,7 +64,7 @@ function TNTProcess() {
               {TNT_PROCESS_STEPS.map((s, i) => (
                 <li key={s.t} className="process__step">
                   <span className="process__check" aria-hidden="true">
-                    <img src="uploads/check-circle-green.png" alt=""/>
+                    <img src={tntImg('/uploads/check-circle-green.png')} alt=""/>
                   </span>
                   <span>
                     <span className="t">{s.t}</span>
@@ -75,7 +75,7 @@ function TNTProcess() {
             </ul>
           </div>
           <div className="process__viz">
-            <img src="uploads/TNT-Trello-sm.png" alt="Track/Trace product roadmap on a Trello board with columns: In Process, Top Priorities, Bulk Transfer, Service Tickets, General Bumps"
+            <img src={tntImg('/uploads/TNT-Trello-sm.png')} loading="lazy" decoding="async" alt="Track/Trace product roadmap on a Trello board with columns: In Process, Top Priorities, Bulk Transfer, Service Tickets, General Bumps"
                  style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'top center',borderRadius:'4px',border:'1px solid var(--line)'}}/>
           </div>
         </div>

@@ -1,0 +1,19 @@
+{
+  "name": "tnt-web",
+  "private": true,
+  "description": "Track/Trace marketing site (trackandtracecash.com)",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "preview": "node build.mjs && npx --yes serve dist -l 5000"
+  },
+  "dependencies": {
+    "esbuild": "0.28.2",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "sharp": "0.35.5"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

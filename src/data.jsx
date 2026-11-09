@@ -4,6 +4,7 @@
 const TNT_NAV_LINKS = [
   { id: 'pillars',       label: 'Platform'        },
   { id: 'benefits',      label: 'Benefits'        },
+  { id: 'solutions',     label: 'Solutions'       },
   { id: 'cases',         label: 'Deployments'     },
   { id: 'customers',     label: 'Customers'       },
   { id: 'atm',           label: 'ATM'             },

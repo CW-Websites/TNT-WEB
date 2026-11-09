@@ -1,10 +1,18 @@
 # Netlify
-
-# Local artifacts
 .netlify/
+
+# Build output — Netlify rebuilds this on every deploy (npm run build)
+dist/
 .cache/
 node_modules/
+npm-debug.log*
 
-# OS
+# Secrets — never commit
+.env
+.env.*
+
+# OS / editor
 .DS_Store
 Thumbs.db
+desktop.ini
+.vscode/

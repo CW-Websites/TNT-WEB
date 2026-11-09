@@ -27,7 +27,7 @@ function TNTWhyDiagram() {
       <div className="why__rowlabel-row">
         <span className="why__rowlabel-text">Process</span>
       </div>
-      <img className="why__diagram-img" src="uploads/TNT-Why2.png"
+      <img className="why__diagram-img" src={tntImg('/uploads/TNT-Why2.png')} loading="lazy" decoding="async"
            alt="Process loop — Customization, Optimization, Automation — connected to the Track/Trace platform"/>
       <div className="why__rowlabel-row">
         <span className="why__rowlabel-text">Platform</span>
@@ -64,7 +64,7 @@ function TNTWhy() {
                 {p.pts.map(pt => (
                   <li key={pt}>
                     <span className="why__check" aria-hidden="true">
-                      <img src="uploads/check-circle-green.png" alt=""/>
+                      <img src={tntImg('/uploads/check-circle-green.png')} alt=""/>
                     </span>
                     <span>{pt}</span>
                   </li>

@@ -15,6 +15,7 @@ function TNTContact() {
       if (res.ok) {
         form.reset();
         setStatus('success');
+        if (window.tntTrackLead) window.tntTrackLead(tntPage(TNT_CURRENT_PAGE).path);
       } else {
         setStatus('error');
       }
@@ -58,7 +59,7 @@ function TNTContact() {
           {status === 'success' ? (
             <div className="contact__form contact__success" role="status" aria-live="polite">
               <div className="contact__success-mark" aria-hidden="true">
-                <img src="uploads/check-circle-green.png" alt=""/>
+                <img src={tntImg('/uploads/check-circle-green.png')} alt=""/>
               </div>
               <h3>Thanks — we got it.</h3>
               <p>
@@ -93,6 +94,10 @@ function TNTContact() {
               </div>
               {/* Honeypot — bots fill this, humans don't see it */}
               <input type="text" name="_gotcha" style={{display:'none'}} tabIndex="-1" autoComplete="off"/>
+              {/* Lead source: tells you which page a demo request came from.
+                  _subject sets the email subject line Formspree sends you. */}
+              <input type="hidden" name="source_page" value={tntPage(TNT_CURRENT_PAGE).crumb + ' (' + tntPage(TNT_CURRENT_PAGE).path + ')'}/>
+              <input type="hidden" name="_subject" value={'Track/Trace demo request — ' + tntPage(TNT_CURRENT_PAGE).crumb}/>
               {status === 'error' && (
                 <div className="contact__error" role="alert">
                   Something went wrong sending your message. Please email <a href="mailto:Support@Coorworks.com">Support@Coorworks.com</a> directly.
@@ -124,7 +129,7 @@ function TNTFooter() {
       <div className="container">
         <div className="tnt-footer__grid">
           <div className="tnt-footer__col">
-            <img src="uploads/logo-tnt-white.png" alt="Track/Trace" style={{height: 36, width: 'auto', marginBottom: 18}}/>
+            <img src={tntImg('/uploads/logo-tnt-white.png')} loading="lazy" decoding="async" alt="Track/Trace" style={{height: 36, width: 'auto', marginBottom: 18}}/>
             <p style={{margin: 0, lineHeight: 1.6, opacity: 0.8, fontSize: 14, maxWidth: '34ch'}}>
               A SaaS platform for cash logistics — CIT, ATM, and FLM/SLM service operations. Engineered for cash logistics from the ground up, not retrofitted into it.
             </p>
@@ -132,20 +137,29 @@ function TNTFooter() {
           <div className="tnt-footer__col">
             <h4>Site</h4>
             <ul>
-              <li><a href="#pillars">Platform</a></li>
-              <li><a href="#benefits">Benefits</a></li>
-              <li><a href="#cases">Deployments</a></li>
-              <li><a href="#integrations">Integrations</a></li>
-              <li><a href="#process">Process</a></li>
+              <li><a href={tntAnchor('pillars')}>Platform</a></li>
+              <li><a href={tntAnchor('benefits')}>Benefits</a></li>
+              <li><a href={tntAnchor('cases')}>Deployments</a></li>
+              <li><a href={tntAnchor('integrations')}>Integrations</a></li>
+              <li><a href={tntAnchor('process')}>Process</a></li>
+              <li><a href={tntAnchor('faq')}>FAQ</a></li>
               <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div className="tnt-footer__col">
+            <h4>Solutions</h4>
+            <ul>
+              {TNT_LANDING_KEYS.map(k => (
+                <li key={k}><a href={tntPage(k).path}>{tntPage(k).crumb}</a></li>
+              ))}
             </ul>
           </div>
           <div className="tnt-footer__col">
             <h4>CoorWorks Products</h4>
             <ul>
               <li><a href="https://coorworks.com" target="_blank" rel="noopener">CoorWorks</a></li>
-              <li><a href="#top">Track/Trace</a></li>
-              <li><a href="https://coorworks.com#deliverables" target="_blank" rel="noopener">OTC Anywhere</a></li>
+              <li><a href="/">Track/Trace</a></li>
+              <li><a href="https://otcanywhere.com/" target="_blank" rel="noopener">OTC Anywhere</a></li>
               <li><a href="https://coorworks.com#deliverables" target="_blank" rel="noopener">ELISA</a></li>
               <li><a href="https://coorworks.com#deliverables" target="_blank" rel="noopener">Coordinate</a></li>
             </ul>
@@ -169,6 +183,10 @@ function TNTFooter() {
           <span>© {new Date().getFullYear()} CoorWorks, Inc. All rights reserved.</span>
           <span>Track/Trace · A CoorWorks Platform · Operating 24 × 7</span>
         </div>
+        <p className="tnt-footer__tm">
+          dormakaba, Kaba, S&amp;G, Intergard, Glory, Semacon and Trello are trademarks of their respective owners.
+          They are used here only to identify compatible systems; Track/Trace is not affiliated with or endorsed by these companies.
+        </p>
       </div>
     </footer>
   );

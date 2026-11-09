@@ -17,8 +17,9 @@ function TNTHero() {
             <span className="accent">Infinite</span>&nbsp;expansion.
           </h1>
           <p className="hero__sub">
-            Evolve your CIT/ATM/FLM business any way <u><strong>YOU</strong></u> want<br/>
-            — A single platform engineered for cash logistics, not retrofitted into it.
+            Evolve your CIT/ATM/FLM business any way <u><strong>YOU</strong></u> want
+            — cash logistics software for cash-in-transit, ATM servicing, FLM/SLM and cash vaults,
+            engineered for cash logistics, not retrofitted into it.
           </p>
           <div className="hero__ctas">
             <a href="#contact" className="btn btn--accent">
@@ -44,10 +45,10 @@ function TNTHero() {
         </div>
         <div className="hero__visual">
           <div className="hero__ph hero__ph--web" aria-label="Track/Trace web — Route Control">
-            <img src="uploads/TNT-Main-Web-Hero.png" alt="Track/Trace Route Control dashboard" />
+            <img src={tntImg('/uploads/TNT-Main-Web-Hero.png')} fetchpriority="high" alt="Track/Trace cash logistics software — Route Control dashboard" />
           </div>
           <div className="hero__ph hero__ph--app" aria-label="Track/Trace mobile app — Route delivery">
-            <img src="uploads/TNT-Main-App-Hero.png" alt="Track/Trace mobile app showing route delivery summary" />
+            <img src={tntImg('/uploads/TNT-Main-App-Hero.png')} alt="Track/Trace mobile app showing route delivery summary" />
           </div>
         </div>
       </div>

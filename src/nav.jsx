@@ -18,15 +18,15 @@ function TNTNav() {
   return (
     <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav__inner">
-        <a href="#top" className="nav__logo">
-          <img src="uploads/logo-tnt-v2.png" alt="Track/Trace"/>
+        <a href={TNT_CURRENT_PAGE === 'home' ? '#top' : '/'} className="nav__logo">
+          <img src={tntImg('/uploads/logo-tnt-v2.png')} alt="Track/Trace"/>
         </a>
         <div className="nav__cta-wrap">
           <a href="#contact" className="nav__cta">Schedule Demo →</a>
         </div>
         <div className="nav__links">
           {TNT_NAV_LINKS.map(l => (
-            <a key={l.id} href={`#${l.id}`} className={`nav__link ${active===l.id?'active':''}`}>
+            <a key={l.id} href={tntAnchor(l.id)} className={`nav__link ${active===l.id?'active':''}`}>
               <span className="dot"></span>{l.label}
             </a>
           ))}

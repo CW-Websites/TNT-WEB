@@ -1,25 +1,51 @@
-[build]
-  publish = "."
-  command = ""
+# Netlify configuration for TNT-WEB (trackandtracecash.com)
+# Docs: https://docs.netlify.com/configure-builds/file-based-configuration/
 
+[build]
+  # build.mjs pre-renders every page to real HTML (so search engines can read
+  # it) and writes the finished site to /dist, which Netlify publishes.
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# -----------------------------------------------------------------------------
+# Sensible defaults for a static marketing site.
+# -----------------------------------------------------------------------------
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    # Browsers must use HTTPS for this site for the next year.
+    # (Deliberately not "includeSubDomains" so dashboard/other subdomains are unaffected.)
+    Strict-Transport-Security = "max-age=31536000"
+    # Turn off device features this marketing site never uses.
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    Cross-Origin-Opener-Policy = "same-origin"
+    # Content Security Policy: the allow-list of where the page may load things from.
+    #   scripts → only this site (no inline scripts)
+    #   styles/fonts → this site + Google Fonts
+    #   form submissions → this site + Formspree (the contact form)
+    #   Google Analytics → googletagmanager.com + google-analytics.com
+    # If you add a new outside service (analytics, chat widget…), it must be added here.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
 
+# Cache uploads aggressively (they rarely change)
 [[headers]]
   for = "/uploads/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# The site script is versioned (?v=...) on every build, so it can be cached
 [[headers]]
-  for = "/src/*"
+  for = "/assets/*"
   [headers.values]
-    Cache-Control = "public, max-age=300"
+    Cache-Control = "public, max-age=31536000, immutable"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Note: the old catch-all redirect (/* → /index.html) was removed. It made every
+# mistyped URL — and robots.txt / sitemap.xml — quietly return the homepage,
+# which search engines treat as duplicate content. Unknown URLs now get the
+# real 404 page (dist/404.html), which Netlify serves automatically.

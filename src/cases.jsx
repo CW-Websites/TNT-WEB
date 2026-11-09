@@ -17,7 +17,7 @@ function TNTCases() {
               <div className="case__head">
                 <div className="case__model">{c.model}</div>
                 <div className="case__arrow" aria-hidden="true">
-                  <img src="uploads/arrow-outbound.png" alt=""/>
+                  <img src={tntImg('/uploads/arrow-outbound.png')} loading="lazy" decoding="async" alt=""/>
                 </div>
                 <div className="case__target">{c.target}</div>
               </div>

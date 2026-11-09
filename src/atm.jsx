@@ -16,13 +16,13 @@ function TNTATM() {
             Fully automated lock <span className="accent">dispatching.</span>
           </h2>
           <p className="section-head__lede">
-            Works across DormaKaba, Stanley S&amp;G and Intergard lock systems<br/>— one platform, every lock, every truck, every vault.
+            Works across dormakaba (Kaba), Stanley S&amp;G and Intergard lock systems<br/>— one platform, every lock, every truck, every vault.
           </p>
         </div>
         <div className="atm reveal">
           <div className="atm__body">
             <div className="atm__visual">
-              <img src="uploads/TNT-OTC.png" alt="OTC Anywhere — Track/Trace lock systems integration: Primary and Secondary OTC services with Lock System DB, Keybox (Enterprise hosted), 3rd Party, and On-Premise lock systems" />
+              <img src={tntImg('/uploads/TNT-OTC.png')} loading="lazy" decoding="async" alt="OTC Anywhere — Track/Trace lock systems integration: Primary and Secondary OTC services with Lock System DB, Keybox (Enterprise hosted), 3rd Party, and On-Premise lock systems" />
             </div>
             <div className="atm__rightcol">
               <a className="btn btn--primary atm__visit" href="https://otcanywhere.com" target="_blank" rel="noopener">
@@ -33,7 +33,7 @@ function TNTATM() {
                 {items.map(it => (
                   <li key={it}>
                     <span className="atm__check" aria-hidden="true">
-                      <img src="uploads/check-circle-green.png" alt=""/>
+                      <img src={tntImg('/uploads/check-circle-green.png')} alt=""/>
                     </span>
                     <span className="atm__text">{it}</span>
                   </li>
