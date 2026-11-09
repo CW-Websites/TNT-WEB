@@ -38,6 +38,8 @@ function TNTApp({ page = 'home' }) {
     );
   } else if (TNT_LANDINGS[page]) {
     main = (<><TNTLanding page={page}/><TNTContact/></>);
+  } else if (TNT_COMPARE[page]) {
+    main = (<><TNTCompare page={page}/><TNTContact/></>);
   } else {
     main = <TNTNotFound/>;
   }

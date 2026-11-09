@@ -13,10 +13,12 @@ function TNTHero() {
             ))}
           </div>
           <h1 className="hero__title">
-            One platform.<br/>
-            <span className="accent">Infinite</span>&nbsp;expansion.
+            End-to-End<br/>
+            <span className="accent">Cash Processing</span><br/>
+            &amp; Logistics.
           </h1>
           <p className="hero__sub">
+            <strong className="hero__tagline">One platform. Infinite expansion.</strong>{' '}
             Evolve your CIT/ATM/FLM business any way <u><strong>YOU</strong></u> want
             — cash logistics software for cash-in-transit, ATM servicing, FLM/SLM and cash vaults,
             engineered for cash logistics, not retrofitted into it.

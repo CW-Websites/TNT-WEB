@@ -1383,7 +1383,8 @@ ul.benefits-grid, ol.steps { list-style: none; padding: 0; }
    On phones the hero text, nav button and footer columns were wider than
    the screen (long lines forced the grid columns wide), so text ran off
    the right edge. Let the columns shrink and the lines wrap instead. */
-.hero__inner > * , .tnt-footer__col { min-width: 0; }
+.tnt-footer__col { min-width: 0; }
+@media (max-width: 980px) { .hero__inner > * { min-width: 0; } }
 .nav__cta { white-space: nowrap; }
 /* Medium screens: the menu didn't fit beside the logo and was cut off,
    so give it its own full-width row underneath. */
@@ -1405,3 +1406,28 @@ ul.benefits-grid, ol.steps { list-style: none; padding: 0; }
   .hero__bullet { grid-template-columns: 84px minmax(0,1fr); gap: 12px; }
   .section-head__lede br, .process__copy br { display: none; }
 }
+
+/* Landing-page headlines are longer than the homepage tagline: let them wrap
+   and size them down a little so they never run under the screenshots or
+   off the edge of a phone. */
+.landing-hero .hero__title { text-wrap: balance; font-size: clamp(36px, 4.8vw, 78px); }
+
+/* Comparison pages */
+.compare { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; position: relative; z-index: 2; }
+@media (max-width: 860px) { .compare { grid-template-columns: 1fr; } }
+.cmpcard { padding: 28px 26px; border-radius: 12px; background: var(--paper); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 14px; }
+.cmpcard--us { border-color: var(--accent); box-shadow: 0 18px 36px -28px rgba(11,30,63,.7); }
+.cmpcard__name { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
+.cmpcard--us .cmpcard__name { color: var(--accent); }
+.cmpcard__tag { margin: 0; font-size: 16px; line-height: 1.5; color: var(--mute); font-style: italic; }
+.cmpcard--us .cmpcard__tag { font-style: normal; }
+.cmpcard__list { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.5; flex: 1; }
+.cmpcard__src { margin: 4px 0 0; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--mute-2); }
+.steps--six { grid-template-columns: repeat(3, minmax(0,1fr)); }
+@media (max-width: 860px) { .steps--six { grid-template-columns: 1fr; } }
+.fitnote { margin-top: 28px; padding: 22px 24px; border-left: 3px solid var(--accent); background: var(--paper-2); border-radius: 0 10px 10px 0; max-width: 880px; }
+.fitnote__h { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.fitnote__p { margin: 0; font-size: 16px; line-height: 1.55; }
+.cmp-legal { padding: 28px 0 40px; }
+.cmp-legal p { margin: 0; max-width: 90ch; font-size: 12.5px; line-height: 1.6; color: var(--mute); }
+.hero__tagline { color: var(--ink); font-weight: 600; }

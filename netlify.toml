@@ -49,3 +49,19 @@
 # mistyped URL — and robots.txt / sitemap.xml — quietly return the homepage,
 # which search engines treat as duplicate content. Unknown URLs now get the
 # real 404 page (dist/404.html), which Netlify serves automatically.
+
+# -----------------------------------------------------------------------------
+# Renamed pages: send old addresses to the new ones (301 = "moved permanently",
+# which tells Google to transfer any ranking to the new address).
+# -----------------------------------------------------------------------------
+[[redirects]]
+  from = "/flm-slm-service-management"
+  to = "/atm-maintenance-software/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/flm-slm-service-management/*"
+  to = "/atm-maintenance-software/"
+  status = 301
+  force = true

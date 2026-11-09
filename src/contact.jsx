@@ -153,6 +153,12 @@ function TNTFooter() {
                 <li key={k}><a href={tntPage(k).path}>{tntPage(k).crumb}</a></li>
               ))}
             </ul>
+            <h4 style={{marginTop: 28}}>Compare</h4>
+            <ul>
+              {TNT_COMPARE_KEYS.map(k => (
+                <li key={k}><a href={tntPage(k).path}>Track/Trace vs. {TNT_COMPARE[k].name}</a></li>
+              ))}
+            </ul>
           </div>
           <div className="tnt-footer__col">
             <h4>CoorWorks Products</h4>
